@@ -197,17 +197,67 @@ WHY = [
     ("Hela Västsverige", "Göteborgsregionen, Halland, Bohuslän och övriga Västra Götaland."),
 ]
 
+# Vanliga frågor per tjänst (bygger på uppgifter från dodsboakuten.se)
+SERVICE_FAQ = {
+    "tomma-dodsbo": [
+        ("Hur lång tid tar det att tömma ett dödsbo?", "Det beror på bostadens storlek och mängden bohag. En mindre lägenhet går ofta på en dag, större villor och gårdar kan ta längre tid. Efter den kostnadsfria bedömningen får ni en tydlig tidsplan."),
+        ("Måste vi sortera själva innan ni kommer?", "Nej. Vi sorterar bohaget strukturerat tillsammans med er eller enligt era instruktioner. Ni avgör vad som ska sparas, säljas, skänkas eller slängas."),
+        ("Vad händer med saker som har ett värde?", "Vi går igenom hemmet och identifierar möbler, konst, smycken, design och samlarföremål innan något körs bort. Vi kan även köpa hela eller delar av bohaget."),
+        ("Kan ni även städa efter tömningen?", "Ja. Städning och sanering ingår som tillval så att bostaden kan lämnas klar för försäljning eller överlämning."),
+    ],
+    "vardera-dodsbo": [
+        ("Kostar värderingen något?", "Den första bedömningen av dödsboet är kostnadsfri. Därefter kommer vi överens om hur vi går vidare."),
+        ("Vad kan ni värdera?", "Möbler, konst, smycken, silver, porslin, designföremål, antikviteter och samlingar, antingen hela hem eller enskilda föremål."),
+        ("Behöver vi sälja till er efter värderingen?", "Nej. Värderingen är fristående. Många väljer att låta oss köpa delar av bohaget eller hjälpa till med tömning, men det är helt upp till er."),
+    ],
+    "kopa-dodsbo": [
+        ("Köper ni hela dödsbon eller bara enstaka saker?", "Både och. Beroende på innehåll och situation köper vi hela dödsbon eller utvalda delar, till exempel antikviteter, möbler, konst, samlarföremål och verktyg."),
+        ("Hur snabbt kan vi få ett bud?", "Vi gör en snabb värdering på plats och lämnar ett tydligt bud. I Göteborg kan vi ofta komma med kort varsel."),
+        ("Vad händer med det ni inte köper?", "Det vi inte köper kan vi hjälpa till att forsla bort, skänka eller återvinna. Tömning och sanering hanteras via samma kontakt."),
+    ],
+    "dodsbostadning": [
+        ("Vad ingår i dödsbostädningen?", "Städning av hela bostaden, inklusive källare, garage och förråd vid behov, anpassad efter vad som krävs inför försäljning, uthyrning eller besiktning med hyresvärd."),
+        ("Kan ni tömma bostaden samtidigt?", "Ja. Dödsbostädning kombineras ofta med tömning och bortforsling av bohag, så att allt sköts i ett och samma uppdrag."),
+        ("Vad gör ni om det luktar illa i bostaden?", "Vid lukt- eller hygienproblem utför vi sanering utöver städningen så att bostaden kan överlämnas i gott skick."),
+    ],
+    "roja-dodsbo": [
+        ("Vad är skillnaden mellan att röja och tömma ett dödsbo?", "Röjning handlar om att sortera och gallra bland möbler, bohag och tillhörigheter, medan tömning innebär att bostaden lämnas helt tom. Vi hjälper till med båda, och ofta i samma uppdrag."),
+        ("Tar ni hand om återvinningen?", "Ja. Allt som ska bort forslas bort och återvinns på rätt sätt. Vi sköter transport och avfallshantering."),
+        ("Kan ni städa när röjningen är klar?", "Ja. Vi städar och återställer bostaden inför försäljning eller överlämning."),
+    ],
+    "sanering-dodsbo": [
+        ("När behövs sanering istället för städning?", "När det finns lukt, fukt, ohyra eller hygienproblem som vanlig städning inte löser. Vi bedömer behovet på plats."),
+        ("Hur snabbt kan ni vara på plats?", "Vid akuta situationer kan vi ofta vara på plats inom 24 timmar."),
+        ("Kan sanering kombineras med tömning?", "Ja. Sanering, tömning och värdering hanteras via en och samma kontakt."),
+    ],
+    "samlarsanering": [
+        ("Hur arbetar ni i kraftigt belamrade bostäder?", "Metodiskt och med respekt. Vi sorterar tillsammans med er eller enligt era önskemål så att viktiga föremål och dokument tas om hand innan bortforsling."),
+        ("Vem kan anlita er för samlarsanering?", "Privatpersoner, anhöriga och fastighetsägare i Göteborg och hela Västsverige."),
+        ("Sköter ni även städning och sanering efteråt?", "Ja. När bostaden är tömd rengör och återställer vi den, och utför sanering vid behov."),
+    ],
+    "blodsanering": [
+        ("Vilka situationer hjälper ni till vid?", "Olyckor, dödsfall och andra händelser där blod, kroppsvätskor eller biologiskt material behöver saneras i bostäder eller lokaler."),
+        ("Arbetar ni diskret?", "Ja. Vi arbetar diskret, snabbt och professionellt, med respekt för de drabbade."),
+        ("Ingår luktsanering?", "Ja, vid behov neutraliserar vi lukt och återställer bostaden eller lokalen."),
+    ],
+    "liksanering": [
+        ("Vad innebär liksanering?", "Sanering av biologiskt material och lukt efter ett dödsfall i bostaden, samt rengöring och återställning av bostaden eller lokalen."),
+        ("Kan ni även tömma dödsboet efteråt?", "Ja. Liksanering kan kombineras med tömning, städning och värdering av dödsboet via samma kontaktperson."),
+        ("Vilka anlitar er?", "Privatpersoner, anhöriga, fastighetsägare och företag i Göteborg och hela Västsverige."),
+    ],
+}
+
 # ---------------------------------------------------------------------------
 # Hjälpfunktioner
 # ---------------------------------------------------------------------------
-ICON_PHONE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.8 2z"/></svg>'
-ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
-ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
+ICON_PHONE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.8 2z"/></svg>'
+ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.8 2.8L16 9.5"/></svg>'
+ICON_SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>'
 
 def e(s):
     return html.escape(s, quote=True)
 
-def head(title, desc, canonical, rel, extra_ld=""):
+def head(title, desc, canonical, rel, extra=""):
     return f"""<!doctype html>
 <html lang="sv">
 <head>
@@ -222,95 +272,68 @@ def head(title, desc, canonical, rel, extra_ld=""):
 <meta property="og:url" content="{canonical}">
 <meta property="og:image" content="{SITE_URL}/assets/video/hero-poster.webp">
 <meta property="og:locale" content="sv_SE">
-<meta name="theme-color" content="#242424">
+<meta name="theme-color" content="#232323">
 <link rel="icon" href="{rel}assets/img/favicon.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="{rel}assets/fonts/poppins-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{rel}assets/fonts/poppins-latin-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{rel}assets/css/style.css">
-{extra_ld}
+{extra}
 </head>
 <body>
 """
 
+NAV = [("Hem", ""), ("Tjänster", "#tjanster"), ("Om oss", "#om-oss"), ("Omdömen", "#omdomen"), ("Vanliga frågor", "#faq"), ("Kontakt", "#kontakt")]
+
 def header(rel, home):
-    def href(anchor):
-        return f"{home}#{anchor}"
-    nav_items = [("Tjänster", href("tjanster")), ("Så fungerar det", href("process")), ("Om oss", href("om-oss")), ("Omdömen", href("omdomen")), ("Vanliga frågor", href("faq")), ("Kontakt", href("kontakt"))]
-    nav = "".join(f'<a href="{h}">{e(t)}</a>' for t, h in nav_items)
-    mnav = "".join(f'<a href="{h}">{e(t)}</a>' for t, h in nav_items)
+    nav = "".join(f'<a href="{home}{h}">{e(t)}</a>' for t, h in NAV)
+    mobile = "".join(f'<a href="{home}{h}">{e(t)}</a>' for t, h in NAV[2:])
+    subs = "".join(f'<a class="sub" href="{rel}tjanster/{s["slug"]}.html">{e(s["title"])}</a>' for s in SERVICES)
     return f"""
-<a class="skip" href="#main" style="position:absolute;left:-9999px">Hoppa till innehållet</a>
-<div class="topbar">
-  <div class="container topbar__inner">
-    <span class="topbar__hours"><b>Öppet</b> {e(HOURS)} · Akut hjälp, ofta inom 24 timmar</span>
-    <span>Ring oss direkt: <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></span>
-  </div>
-</div>
-<header class="header">
-  <div class="container header__inner">
-    <a class="header__logo" href="{home}" aria-label="Dödsboakuten, till startsidan">
-      <img class="logo-dark" src="{rel}assets/img/logo-wordmark-dark.png" alt="Dödsboakuten" width="1773" height="680">
-      <img class="logo-light" src="{rel}assets/img/logo-wordmark-light.png" alt="" width="1773" height="680">
+<a class="skip" href="#main">Hoppa till innehållet</a>
+<header class="header" id="top">
+  <div class="header__inner">
+    <a class="header__logo" href="{home or 'index.html'}" aria-label="Dödsboakuten, till startsidan">
+      <img src="{rel}assets/img/logo-wordmark-dark.png" alt="Dödsboakuten" width="1773" height="680">
     </a>
-    <nav class="nav" aria-label="Huvudmeny">{nav}</nav>
-    <div class="header__actions">
-      <a class="header__phone" href="tel:{PHONE_TEL}">{ICON_PHONE}{PHONE_DISPLAY}</a>
-      <a class="btn btn--brand" href="{href("kontakt")}">Begär offert</a>
-    </div>
-    <button class="burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Öppna menyn"><span></span><span></span><span></span></button>
+    <nav class="header__nav" aria-label="Huvudmeny">{nav}</nav>
+    <a class="btn btn--brand btn--sm header__cta" href="tel:{PHONE_TEL}">{ICON_PHONE}{PHONE_DISPLAY}</a>
+    <button class="header__toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Öppna menyn"><span></span><span></span><span></span></button>
   </div>
+  <nav class="header__mobile" id="mobile-nav" hidden aria-label="Mobilmeny">
+    <a href="{home or 'index.html'}">Hem</a>
+    <a href="{home}#tjanster">Tjänster</a>
+    {subs}
+    {mobile}
+    <a class="btn btn--brand btn--block" href="tel:{PHONE_TEL}">{ICON_PHONE}Ring {PHONE_DISPLAY}</a>
+  </nav>
 </header>
-<div class="mobile-menu" id="mobile-menu">
-  <nav aria-label="Mobilmeny">{mnav}</nav>
-  <div class="mobile-menu__foot">
-    <a class="tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
-    <a href="mailto:{EMAIL}">{EMAIL}</a>
-    <a class="btn btn--brand" href="{href("kontakt")}">Begär kostnadsfri bedömning</a>
-  </div>
-</div>
 <main id="main">
 """
 
 def footer(rel, home):
-    svc = "".join(f'<li><a href="{rel}tjanster/{s["slug"]}.html">{e(s["title"])}</a></li>' for s in SERVICES)
-    areas = "".join(f"<li>{e(a)}</li>" for a in AREAS_MAIN[:1] + AREAS_REGION[:7])
+    links = "".join(f'<a href="{rel}tjanster/{s["slug"]}.html">{e(s["title"])}</a>' for s in SERVICES)
     return f"""
 </main>
 <footer class="footer">
   <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <img src="{rel}assets/img/logo-light.png" alt="Dödsboakuten – vi tar hand om allt" width="1773" height="838">
-        <p>Trygg helhetsleverantör för hantering av dödsbon i Göteborg och Västsverige. Tömning, värdering, köp, städning och sanering, med respekt, diskretion och omtanke.</p>
-        <p class="muted" style="font-size:14px">{e(ADDRESS)}</p>
-      </div>
+    <div class="footer__grid">
       <div>
-        <h4>Tjänster</h4>
-        <ul>{svc}</ul>
+        <img class="footer__logo" src="{rel}assets/img/logo-dark.png" alt="Dödsboakuten – vi tar hand om allt" width="1773" height="838">
       </div>
-      <div>
-        <h4>Vi finns i</h4>
-        <ul>{areas}<li><a href="{home}#omraden">Hela Västsverige</a></li></ul>
-      </div>
-      <div>
-        <h4>Kontakt</h4>
-        <ul>
-          <li><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></li>
-          <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
-          <li>{e(HOURS)}</li>
-          <li>{e(HOURS_EXTRA)}</li>
-        </ul>
-      </div>
+      <div class="footer__links">{links}</div>
+      <address>
+        Dödsboakuten<br>
+        {e(ADDRESS)}<br>
+        Telefon: <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a><br>
+        Mail: <a href="mailto:{EMAIL}">{EMAIL}</a><br>
+        {e(HOURS)}
+      </address>
     </div>
-    <div class="footer__bottom">
-      <span>© <span data-year>2026</span> Dödsboakuten. Alla rättigheter förbehållna.</span>
-      <span>Exportgatan 73, Hisings Backa · Göteborg</span>
-    </div>
+    <p class="footer__copy">© <span data-year>2026</span> Dödsboakuten · Dödsbo i Göteborg &amp; Västsverige · Kostnadsfri bedömning, ofta på plats inom 24 timmar</p>
   </div>
 </footer>
 <div class="call-fab">
-  <a class="btn btn--ink" href="tel:{PHONE_TEL}">{ICON_PHONE}Ring {PHONE_DISPLAY}</a>
+  <a class="btn btn--dark" href="tel:{PHONE_TEL}">{ICON_PHONE}Ring oss</a>
   <a class="btn btn--brand" href="{home}#kontakt">Begär offert</a>
 </div>
 <script src="{rel}assets/js/main.js" defer></script>
@@ -318,11 +341,63 @@ def footer(rel, home):
 </html>
 """
 
+def faq_html(items):
+    return "".join(f'<details class="faq__item"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in items)
+
+def steps_html():
+    return "".join(f'<div class="step"><span class="step__num">{i}</span><h3>{e(t)}</h3><p>{e(d)}</p></div>' for i, (t, d) in enumerate(PROCESS, 1))
+
+def contact_html(rel, home):
+    svc_opts = "".join(f'<option>{e(s["title"])}</option>' for s in SERVICES)
+    return f"""
+<section class="contact" id="kontakt">
+  <div class="contact__panel" aria-hidden="true"></div>
+  <div class="container contact__grid">
+    <div>
+      <p class="contact__kicker">Kontakt</p>
+      <h2 class="display display--sm">Berätta om situationen,<br>så återkommer vi snabbt.</h2>
+      <p class="contact__lead">Den första bedömningen är alltid kostnadsfri. Ring, mejla eller fyll i formuläret så hör vi av oss, oftast samma dag.</p>
+      <div class="contact__details">
+        <div><span>Telefon</span><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></div>
+        <div><span>E-post</span><a href="mailto:{EMAIL}">{EMAIL}</a></div>
+        <div><span>Adress</span><p>{e(ADDRESS)}</p></div>
+        <div><span>Öppettider</span><p>{e(HOURS)}<br>{e(HOURS_EXTRA)}</p></div>
+      </div>
+    </div>
+    <form class="form" action="https://formspree.io/f/DIN-FORM-ID" method="POST" novalidate>
+      <div class="field"><label for="f-name">Namn *</label><input id="f-name" name="Namn" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f-phone">Telefon *</label><input id="f-phone" name="Telefon" type="tel" autocomplete="tel" required></div>
+      <div class="field"><label for="f-email">E-post</label><input id="f-email" name="E-post" type="email" autocomplete="email"></div>
+      <div class="field"><label for="f-city">Ort där bostaden finns</label><input id="f-city" name="Ort" type="text" placeholder="T.ex. Göteborg"></div>
+      <div class="field"><label for="f-type">Vad behöver du hjälp med?</label><select id="f-type" name="Tjänst"><option>Hela processen</option>{svc_opts}<option>Osäker, vill rådgöra</option></select></div>
+      <div class="field"><label for="f-size">Typ av bostad</label><select id="f-size" name="Bostad"><option>Lägenhet</option><option>Villa / radhus</option><option>Gård / lantbruk</option><option>Förråd, garage eller lokal</option><option>Annat</option></select></div>
+      <div class="field"><label for="f-msg">Meddelande</label><textarea id="f-msg" name="Meddelande" placeholder="Beskriv gärna bostaden, önskad tidpunkt och om något är brådskande."></textarea></div>
+      <p class="hp" aria-hidden="true"><label>Lämna tomt<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+      <input type="hidden" name="_subject" value="Offertförfrågan via dodsboakuten.se">
+      <button class="btn btn--brand btn--block" type="submit">Skicka förfrågan</button>
+      <p class="form__status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+"""
+
+def card_html(s, rel):
+    return f"""
+      <article class="card">
+        <img src="{rel}assets/img/{s['img']}-800.webp" alt="{e(s['img_alt'])}" loading="lazy" width="800" height="600">
+        <div class="card__body">
+          <h3><a class="card__link" href="{rel}tjanster/{s['slug']}.html">{e(s['title'])}</a></h3>
+          <p>{e(s['short'])}</p>
+          <span class="card__more">Läs mer →</span>
+        </div>
+      </article>"""
+
 # ---------------------------------------------------------------------------
 # Startsidan
 # ---------------------------------------------------------------------------
 def build_index():
-    rel, home = "", "index.html"
+    import json
+    rel, home = "", ""
     ld = {
         "@context": "https://schema.org", "@type": "LocalBusiness", "name": "Dödsboakuten",
         "url": SITE_URL, "telephone": PHONE_TEL, "email": EMAIL, "image": SITE_URL + "/assets/img/logo-full-light.png",
@@ -331,18 +406,14 @@ def build_index():
         "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00"}],
         "description": "Tömning, värdering, köp, städning och sanering av dödsbo i Göteborg och Västsverige.",
     }
-    import json
-    extra = '<script type="application/ld+json">%s</script>' % json.dumps(ld, ensure_ascii=False)
     faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
-    extra += '\n<script type="application/ld+json">%s</script>' % json.dumps(faq_ld, ensure_ascii=False)
-    extra += f'\n<link rel="preload" as="image" href="assets/video/hero-poster.webp" fetchpriority="high">'
+    extra = '<script type="application/ld+json">%s</script>\n<script type="application/ld+json">%s</script>\n<link rel="preload" as="image" href="assets/video/hero-poster.webp" fetchpriority="high">' % (json.dumps(ld, ensure_ascii=False), json.dumps(faq_ld, ensure_ascii=False))
 
     out = head("Dödsboakuten | Dödsbo i Göteborg – tömning, värdering, köp & sanering",
                "Dödsboakuten hjälper anhöriga med tömning, värdering, köp, städning och sanering av dödsbo i Göteborg och hela Västsverige. Kostnadsfri bedömning, ofta på plats inom 24 timmar.",
                SITE_URL + "/", rel, extra)
     out += header(rel, home)
 
-    # Hero
     out += f"""
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__media" aria-hidden="true">
@@ -351,189 +422,116 @@ def build_index():
       <source src="assets/video/hero.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="container hero__inner">
-    <div class="hero__content">
-      <p class="eyebrow">Dödsbo i Göteborg &amp; Västsverige</p>
-      <h1 class="h1 hero__title" id="hero-title">Vi tar hand om allt, <em>så att ni kan ta hand om varandra.</em></h1>
-      <p class="hero__text">Tömning, värdering, köp, städning och sanering av dödsbo. En kontaktperson genom hela processen, med respekt för hemmet och för er som står mitt i det.</p>
-      <div class="hero__cta">
-        <a class="btn btn--brand" href="#kontakt">Begär kostnadsfri bedömning</a>
-        <a class="btn btn--outline" href="tel:{PHONE_TEL}">{ICON_PHONE}Ring {PHONE_DISPLAY}</a>
-      </div>
+  <div class="container hero__content">
+    <h1 class="display hero__title" id="hero-title">Vi tar hand om allt.<br><em>Med omtanke.</em></h1>
+    <p class="hero__lead">Tömning, värdering, köp, städning och sanering av dödsbo i Göteborg och hela Västsverige. En kontaktperson genom hela processen, ofta på plats inom 24 timmar.</p>
+    <div class="hero__cta">
+      <a class="btn btn--white" href="#kontakt">Boka kostnadsfri bedömning</a>
+      <a class="btn btn--outline" href="tel:{PHONE_TEL}">{ICON_PHONE}{PHONE_DISPLAY}</a>
     </div>
-    <ul class="hero__facts">
-      <li><b>Ofta inom 24 timmar</b><span>Snabb hjälp vid akuta situationer</span></li>
-      <li><b>Kostnadsfri bedömning</b><span>Vi börjar alltid med ett besök utan kostnad</span></li>
-      <li><b>Hela Västsverige</b><span>Göteborg, Halland, Bohuslän och Västra Götaland</span></li>
+  </div>
+</section>
+
+<section class="about" id="om">
+  <div class="container about__grid">
+    <div class="about__text">
+      <h2 class="h2">Om oss</h2>
+      <p>Dödsboakuten är en trygg helhetsleverantör för hantering av dödsbon i Göteborg, Halland och hela Västsverige. Att ta hand om ett dödsbo är känslomässigt tungt och fullt av praktiska uppgifter. Därför tar vi ansvar för hela processen, från första bedömning till tömt, städat och överlämnat hem.</p>
+      <p>Vi hjälper privatpersoner, anhöriga och fastighetsägare, i allt från små lägenheter till stora villor och gårdar. Vi arbetar snabbt, respektfullt och med personlig kontakt, och samarbetar med mäklare, jurister och städföretag när uppdraget kräver det.</p>
+      <a class="btn btn--brand" href="#tjanster">Våra tjänster</a>
+    </div>
+    <div class="about__media">
+      <img src="assets/img/fonster.webp" srcset="assets/img/fonster-800.webp 800w, assets/img/fonster.webp 1600w" sizes="(min-width: 960px) 50vw, 100vw" alt="Ett äldre hem med lampa och spegel vid fönstret" loading="lazy" width="1600" height="1200">
+    </div>
+  </div>
+</section>
+
+<section class="why" id="varfor">
+  <div class="container why__grid">
+    <div>
+      <p class="kicker">Därför Dödsboakuten</p>
+      <h2 class="display display--sm">Ett företag du kan lita på, <em>från första samtalet.</em></h2>
+      <p class="why__lead">Snabb hjälp, en kontaktperson och respekt för hemmet. Så enkelt ska det vara att få ett dödsbo omhändertaget.</p>
+      <a class="btn btn--brand" href="#kontakt">Kontakta oss</a>
+    </div>
+    <div class="why__stats">
+      <div class="stat"><div class="stat__num">24<small>timmar</small></div><h3>Snabb hjälp</h3><p>Vid akuta situationer kan vi ofta vara på plats inom ett dygn.</p></div>
+      <div class="stat"><div class="stat__num">0<small>kr</small></div><h3>Kostnadsfri bedömning</h3><p>Vi börjar alltid med ett besök utan kostnad och ett tydligt förslag.</p></div>
+      <div class="stat"><div class="stat__num">1</div><h3>Kontaktperson</h3><p>Samma person genom hela uppdraget, från första samtal till överlämning.</p></div>
+      <div class="stat"><div class="stat__num">9</div><h3>Tjänster under ett tak</h3><p>Tömning, värdering, köp, städning, röjning och fyra typer av sanering.</p></div>
+    </div>
+    <ul class="why__promises">
+      <li>{ICON_SHIELD}Respektfull och diskret hantering</li>
+      <li>{ICON_SHIELD}Erfarenhet från många dödsbon</li>
+      <li>{ICON_SHIELD}Hela Göteborg, Halland, Bohuslän och Västsverige</li>
     </ul>
   </div>
 </section>
-"""
 
-    # Intro
-    out += f"""
-<section class="section section--paper" id="om" aria-labelledby="intro-title">
+<section class="services" id="tjanster">
   <div class="container">
-    <div class="intro">
-      <div class="reveal">
-        <p class="eyebrow">Om Dödsboakuten</p>
-        <h2 class="intro__statement" id="intro-title" style="margin-top:18px">En trygg helhetsleverantör när ett hem ska <em>avvecklas med omtanke.</em></h2>
-      </div>
-      <div class="intro__body reveal">
-        <p class="lead">Att hantera ett dödsbo är känslomässigt tungt och fullt av praktiska uppgifter. Dödsboakuten tar ansvar för hela processen, från första bedömning till tömt, städat och överlämnat hem.</p>
-        <p>Vi hjälper privatpersoner, anhöriga och fastighetsägare i Göteborg, Halland och hela Västsverige. Uppdragen spänner från små lägenheter till stora villor och gårdar, och vi arbetar alltid snabbt, respektfullt och med personlig kontakt. När uppdraget kräver det samarbetar vi med mäklare, jurister och städföretag för att kunna erbjuda en komplett lösning.</p>
-        <ul class="intro__points">
-          <li><span>01</span>Tömning, bortforsling och återvinning av bohag</li>
-          <li><span>02</span>Värdering och köp av möbler, antikviteter och samlarföremål</li>
-          <li><span>03</span>Städning och sanering så att bostaden kan lämnas vidare</li>
-        </ul>
-        <a class="link" href="#om-oss">Möt personen bakom Dödsboakuten {ICON_ARROW}</a>
-      </div>
+    <h2 class="h2 h2--center">Våra tjänster</h2>
+    <p class="services__lead">Allt som behöver göras när ett hem ska avvecklas, genom en och samma kontakt.</p>
+    <div class="services__grid">{"".join(card_html(SERVICE_BY_SLUG[s], rel) for s in MAIN_SLUGS)}
     </div>
-    <figure class="intro__media reveal">
-      <img src="assets/img/fonster.webp" srcset="assets/img/fonster-800.webp 800w, assets/img/fonster.webp 1600w" sizes="(min-width: 1240px) 1160px, 100vw" alt="Ett äldre hem med lampa och spegel vid fönstret" loading="lazy" width="1600" height="900">
-      <figcaption>Varje hem bär på en historia. Vi hanterar den med respekt.</figcaption>
-    </figure>
+    <div class="services__sub">
+      <h2 class="h2">Sanering &amp; specialuppdrag</h2>
+      <p class="services__lead">När bostaden kräver mer än städning. Vi hjälper privatpersoner, anhöriga, fastighetsägare och företag.</p>
+    </div>
+    <div class="services__grid services__grid--5">{"".join(card_html(SERVICE_BY_SLUG[s], rel) for s in SECONDARY_SLUGS)}
+    </div>
+    <p class="services__extra">Osäker på vad ni behöver? <a href="tel:{PHONE_TEL}">Ring {PHONE_DISPLAY}</a> så går vi igenom situationen tillsammans.</p>
   </div>
 </section>
-"""
 
-    # Tjänster
-    cards = ""
-    for i, slug in enumerate(MAIN_SLUGS, 1):
-        s = SERVICE_BY_SLUG[slug]
-        cards += f"""
-      <a class="service reveal" href="tjanster/{s['slug']}.html">
-        <div class="service__media"><img src="assets/img/{s['img']}-800.webp" alt="{e(s['img_alt'])}" loading="lazy" width="800" height="1000"><span class="service__num">0{i}</span></div>
-        <h3>{e(s['title'])}</h3>
-        <p>{e(s['short'])}</p>
-        <span class="link">Läs mer {ICON_ARROW}</span>
-      </a>"""
-    sec = ""
-    for slug in SECONDARY_SLUGS:
-        s = SERVICE_BY_SLUG[slug]
-        sec += f"""
-        <a href="tjanster/{s['slug']}.html"><div><h3>{e(s['title'])}</h3><p>{e(s['short'])}</p></div>{ICON_ARROW}</a>"""
-    out += f"""
-<section class="section" id="tjanster" aria-labelledby="tjanster-title">
+<section class="steps" id="process">
   <div class="container">
-    <div class="section-head section-head--split reveal">
-      <div>
-        <p class="eyebrow">Våra tjänster</p>
-        <h2 class="h2" id="tjanster-title" style="margin-top:18px">Allt som behöver göras, genom en kontakt.</h2>
-      </div>
-      <p class="lead">Vi erbjuder hjälp genom hela processen, från sortering och värdering till bortforsling, återvinning och städning. Välj det ni behöver, eller låt oss ta hand om helheten.</p>
+    <h2 class="h2 h2--center">Så fungerar det</h2>
+    <p class="steps__lead">Fem steg från första samtal till tomt, klart hem.</p>
+    <div class="steps__grid">{steps_html()}</div>
+    <div class="steps__cta"><a class="btn btn--dark" href="#kontakt">Boka kostnadsfri bedömning</a></div>
+  </div>
+</section>
+
+<section class="areas" id="omraden">
+  <div class="container areas__grid">
+    <div class="areas__media">
+      <img src="assets/img/goteborg.webp" srcset="assets/img/goteborg-800.webp 800w, assets/img/goteborg.webp 1600w" sizes="(min-width: 960px) 50vw, 100vw" alt="Kanal och äldre bebyggelse i centrala Göteborg" loading="lazy" width="1600" height="1200">
     </div>
-    <div class="services">{cards}
+    <div class="areas__text">
+      <h2 class="h2">Göteborg, Halland, Bohuslän och hela Västsverige</h2>
+      <p>Vi utgår från Hisings Backa och arbetar i hela Göteborgsregionen. Vi tar även uppdrag längs kusten och inåt landet, i hela Västra Götaland och Halland.</p>
+      <ul class="tags">{"".join(f'<li class="is-main">{e(a)}</li>' for a in AREAS_MAIN)}{"".join(f'<li>{e(a)}</li>' for a in AREAS_REGION)}</ul>
+      <p class="muted" style="margin-top:22px;font-size:15px">Saknas din ort? Hör av dig, vi hjälper ofta till även utanför de områden som listas här.</p>
     </div>
-    <div class="services-secondary">
-      <div class="services-secondary__intro reveal">
-        <p class="eyebrow">Sanering &amp; specialuppdrag</p>
-        <h3 class="h3">När bostaden kräver mer än städning</h3>
-        <p class="muted">Vissa uppdrag kräver särskild erfarenhet, utrustning och diskretion. Vi hjälper privatpersoner, anhöriga, fastighetsägare och företag.</p>
-      </div>
-      <div class="services-list reveal">{sec}
+  </div>
+</section>
+
+<section class="team" id="om-oss">
+  <div class="container team__grid">
+    <div class="team__portrait">
+      <img src="assets/img/profil.jpg" alt="Ansvarig på Dödsboakuten i företagets arbetströja" width="281" height="328" loading="lazy">
+    </div>
+    <div class="team__text">
+      <p class="kicker">Möt oss</p>
+      <h2 class="h2">Personlig kontakt hela vägen</h2>
+      <div class="team__role"><b>Din kontaktperson på Dödsboakuten</b><span>Ansvarig · Göteborg &amp; Västsverige</span></div>
+      <p class="team__quote">”Ett dödsbo är ett helt liv i föremål. Vårt jobb är att göra det praktiska enkelt, så att ni får utrymme för det som är svårt.”</p>
+      <p>Dödsboakuten drivs med erfarenhet från många dödsbon i Göteborg och Västsverige, från små lägenheter till stora villor och gårdar. Du har samma person att vända dig till genom hela uppdraget, och vi arbetar alltid med respekt, diskretion och omtanke om både hemmet och de anhöriga.</p>
+      <div class="team__contact">
+        <a class="btn btn--dark btn--sm" href="tel:{PHONE_TEL}">{ICON_PHONE}{PHONE_DISPLAY}</a>
+        <a class="btn btn--ghost btn--sm" href="mailto:{EMAIL}">{EMAIL}</a>
       </div>
     </div>
   </div>
 </section>
-"""
 
-    # Varför
-    why = "".join(f'<div class="why__item"><span>0{i}</span><h3>{e(t)}</h3><p>{e(d)}</p></div>' for i, (t, d) in enumerate(WHY, 1))
-    out += f"""
-<section class="section section--dark" id="varfor" aria-labelledby="varfor-title">
+<section class="reviews" id="omdomen">
   <div class="container">
-    <div class="why">
-      <div class="why__aside reveal">
-        <p class="eyebrow">Varför Dödsboakuten</p>
-        <h2 class="h2" id="varfor-title">Erfarenhet, snabbhet och respekt för hemmet.</h2>
-        <p class="lead">Vi vet att ett dödsbo är mer än ett bohag. Därför arbetar vi strukturerat, diskret och alltid med en personlig kontakt.</p>
-        <div><a class="btn btn--brand" href="#kontakt">Kontakta oss</a></div>
-      </div>
-      <div class="why__list reveal">{why}</div>
-    </div>
-  </div>
-</section>
-"""
-
-    # Process
-    steps = "".join(f'<div class="step reveal"><span class="step__num">{i}</span><h3>{e(t)}</h3><p>{e(d)}</p></div>' for i, (t, d) in enumerate(PROCESS, 1))
-    out += f"""
-<section class="section section--paper" id="process" aria-labelledby="process-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">Så fungerar det</p>
-      <h2 class="h2" id="process-title">Fem steg från första samtal till tomt, klart hem.</h2>
-    </div>
-    <div class="process">{steps}</div>
-    <div class="process-cta reveal">
-      <a class="btn btn--ink" href="#kontakt">Boka kostnadsfri bedömning</a>
-      <span class="muted">Eller ring oss direkt på <a href="tel:{PHONE_TEL}" style="color:var(--ink);font-weight:500">{PHONE_DISPLAY}</a></span>
-    </div>
-  </div>
-</section>
-"""
-
-    # Områden
-    tags = "".join(f'<li class="is-main">{e(a)}</li>' for a in AREAS_MAIN) + "".join(f"<li>{e(a)}</li>" for a in AREAS_REGION)
-    out += f"""
-<section class="section" id="omraden" aria-labelledby="omraden-title">
-  <div class="container">
-    <div class="areas">
-      <div class="areas__media reveal">
-        <img src="assets/img/goteborg.webp" srcset="assets/img/goteborg-800.webp 800w, assets/img/goteborg.webp 1600w" sizes="(min-width: 960px) 50vw, 100vw" alt="Kanal och äldre bebyggelse i centrala Göteborg" loading="lazy" width="1600" height="1067">
-      </div>
-      <div class="areas__body reveal">
-        <p class="eyebrow">Där vi finns</p>
-        <h2 class="h2" id="omraden-title">Göteborg, Halland, Bohuslän och hela Västsverige.</h2>
-        <p class="lead">Vi utgår från Hisings Backa och arbetar i hela Göteborgsregionen. Vi tar även uppdrag längs kusten och inåt landet, i hela Västra Götaland och Halland.</p>
-        <ul class="area-tags">{tags}</ul>
-        <p class="muted" style="font-size:15px">Saknas din ort? Hör av dig, vi hjälper ofta till även utanför de områden som listas här.</p>
-      </div>
-    </div>
-  </div>
-</section>
-"""
-
-    # Team
-    out += f"""
-<section class="section section--paper" id="om-oss" aria-labelledby="team-title">
-  <div class="container">
-    <div class="team">
-      <div class="team__portrait reveal">
-        <img src="assets/img/profil.jpg" alt="Ansvarig på Dödsboakuten i företagets arbetströja" width="281" height="328" loading="lazy">
-      </div>
-      <div class="team__body reveal">
-        <p class="eyebrow">Möt oss</p>
-        <h2 class="h2" id="team-title">Personlig kontakt, från första samtalet till sista nyckeln.</h2>
-        <div class="team__role">
-          <b>Din kontaktperson på Dödsboakuten</b>
-          <span>Ansvarig · Göteborg &amp; Västsverige</span>
-        </div>
-        <p class="team__quote">”Ett dödsbo är ett helt liv i föremål. Vårt jobb är att göra det praktiska enkelt, så att ni får utrymme för det som är svårt.”</p>
-        <p>Dödsboakuten drivs med erfarenhet från många dödsbon i Göteborg och Västsverige, från små lägenheter till stora villor och gårdar. Du har samma person att vända dig till genom hela uppdraget, och vi arbetar alltid med respekt, diskretion och omtanke om både hemmet och de anhöriga.</p>
-        <div class="team__contact">
-          <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
-          <a href="mailto:{EMAIL}">{EMAIL}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-"""
-
-    # Omdömen (inga publicerade omdömen finns på nuvarande webbplats eller i hittade källor;
-    # sektionen är förberedd och fylls med riktiga kundomdömen när de finns.)
-    out += f"""
-<section class="section" id="omdomen" aria-labelledby="omdomen-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">Kundomdömen</p>
-      <h2 class="h2" id="omdomen-title">Förtroende byggs i varje uppdrag.</h2>
-    </div>
+    <h2 class="h2 h2--center">Kundomdömen</h2>
+    <p class="services__lead">Förtroende byggs i varje uppdrag.</p>
     <!--
-      REDAKTIONELL NOT: Här läggs riktiga kundomdömen in när de finns (t.ex. från Google).
+      REDAKTIONELL NOT: Lägg in riktiga kundomdömen här (t.ex. från Google) i <div class="reviews__grid">.
       Mall per omdöme:
       <figure class="review">
         <div class="review__stars">★★★★★</div>
@@ -541,77 +539,32 @@ def build_index():
         <figcaption><b>Förnamn E.</b>Göteborg · Tömning av dödsbo</figcaption>
       </figure>
     -->
-    <div class="reviews-note reveal">
+    <div class="reviews__note">
       <div>
-        <h3>Referenser lämnas gärna på begäran.</h3>
-        <p>Vi publicerar endast omdömen från verkliga kunder. Vill du höra hur tidigare uppdragsgivare upplevt vårt arbete, eller har du själv anlitat oss och vill dela din upplevelse, hör av dig så hjälper vi dig vidare.</p>
+        <h3>Referenser lämnas gärna på begäran</h3>
+        <p>Vi publicerar endast omdömen från verkliga kunder. Vill du höra hur tidigare uppdragsgivare upplevt vårt arbete, eller har du själv anlitat oss och vill dela din upplevelse, hör av dig.</p>
       </div>
-      <div style="display:flex;flex-wrap:wrap;gap:12px">
-        <a class="btn btn--ink" href="tel:{PHONE_TEL}">{ICON_PHONE}Ring {PHONE_DISPLAY}</a>
-        <a class="btn btn--outline-ink" href="mailto:{EMAIL}?subject=Omdöme%20om%20Dödsboakuten">Lämna ett omdöme</a>
+      <div>
+        <a class="btn btn--dark" href="tel:{PHONE_TEL}">{ICON_PHONE}Ring {PHONE_DISPLAY}</a>
+        <a class="btn btn--ghost" href="mailto:{EMAIL}?subject=Omdöme%20om%20Dödsboakuten">Lämna ett omdöme</a>
       </div>
     </div>
   </div>
 </section>
-"""
 
-    # FAQ
-    faq = "".join(f'<details class="faq__item"><summary>{e(q)}<span aria-hidden="true"></span></summary><p>{e(a)}</p></details>' for q, a in FAQ)
-    out += f"""
-<section class="section section--paper" id="faq" aria-labelledby="faq-title">
-  <div class="container">
-    <div class="faq">
-      <div class="faq__aside reveal">
-        <p class="eyebrow">Vanliga frågor</p>
-        <h2 class="h2" id="faq-title">Det här undrar många.</h2>
-        <p class="lead">Hittar du inte svaret? Ring oss så reder vi ut det tillsammans.</p>
-        <div><a class="btn btn--outline-ink" href="tel:{PHONE_TEL}">{ICON_PHONE}{PHONE_DISPLAY}</a></div>
-      </div>
-      <div class="faq__list reveal">{faq}</div>
+<section class="faq-section" id="faq">
+  <div class="container faq-grid">
+    <div>
+      <p class="kicker">Vanliga frågor</p>
+      <h2 class="h2">Frågor om dödsbo</h2>
+      <p class="lead">Hittar du inte svaret? Ring oss så reder vi ut det tillsammans.</p>
+      <a class="btn btn--ghost" href="tel:{PHONE_TEL}">{ICON_PHONE}{PHONE_DISPLAY}</a>
     </div>
+    <div class="faq">{faq_html(FAQ)}</div>
   </div>
 </section>
 """
-
-    # Kontakt
-    svc_opts = "".join(f'<option>{e(s["title"])}</option>' for s in SERVICES)
-    out += f"""
-<section class="section section--dark" id="kontakt" aria-labelledby="kontakt-title">
-  <div class="container">
-    <div class="contact">
-      <div class="contact__info reveal">
-        <p class="eyebrow">Kontakt &amp; offert</p>
-        <h2 class="h2" id="kontakt-title">Berätta om situationen, så återkommer vi snabbt.</h2>
-        <p class="lead">Den första bedömningen är alltid kostnadsfri. Ring, mejla eller fyll i formuläret så hör vi av oss, oftast samma dag.</p>
-        <div class="contact__rows">
-          <div><span>Telefon</span><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></div>
-          <div><span>E-post</span><a href="mailto:{EMAIL}">{EMAIL}</a></div>
-          <div><span>Besöksadress</span><p>{e(ADDRESS)}</p></div>
-          <div><span>Öppettider</span><p>{e(HOURS)}<br><span style="text-transform:none;letter-spacing:0;font-size:15px;color:rgba(255,255,255,.62)">{e(HOURS_EXTRA)}</span></p></div>
-        </div>
-      </div>
-      <form class="form reveal" action="https://formspree.io/f/DIN-FORM-ID" method="POST" novalidate>
-        <div class="form__grid">
-          <div class="field"><label for="f-name">Namn *</label><input id="f-name" name="Namn" type="text" autocomplete="name" required></div>
-          <div class="field"><label for="f-phone">Telefon *</label><input id="f-phone" name="Telefon" type="tel" autocomplete="tel" required></div>
-          <div class="field"><label for="f-email">E-post</label><input id="f-email" name="E-post" type="email" autocomplete="email"></div>
-          <div class="field"><label for="f-city">Ort där bostaden finns</label><input id="f-city" name="Ort" type="text" autocomplete="address-level2" placeholder="T.ex. Göteborg"></div>
-          <div class="field"><label for="f-type">Vad behöver du hjälp med?</label><select id="f-type" name="Tjänst"><option>Hela processen (tömning, värdering, städning)</option>{svc_opts}<option>Osäker, vill rådgöra</option></select></div>
-          <div class="field"><label for="f-size">Typ av bostad</label><select id="f-size" name="Bostad"><option>Lägenhet</option><option>Villa / radhus</option><option>Gård / lantbruk</option><option>Förråd, garage eller lokal</option><option>Annat</option></select></div>
-          <div class="field field--full"><label for="f-msg">Beskriv gärna situationen</label><textarea id="f-msg" name="Meddelande" placeholder="Till exempel storlek på bostaden, önskad tidpunkt och om något är brådskande."></textarea></div>
-        </div>
-        <p class="hp" aria-hidden="true"><label>Lämna tomt<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
-        <input type="hidden" name="_subject" value="Offertförfrågan via dodsboakuten.se">
-        <div class="form__foot">
-          <button class="btn btn--brand" type="submit">Skicka förfrågan</button>
-          <small>Vi behandlar dina uppgifter konfidentiellt och använder dem bara för att återkomma till dig.</small>
-        </div>
-        <p class="form__status" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </div>
-</section>
-"""
+    out += contact_html(rel, home)
     out += footer(rel, home)
     write(os.path.join(ROOT, "index.html"), out)
 
@@ -619,83 +572,100 @@ def build_index():
 # Tjänstesidor
 # ---------------------------------------------------------------------------
 def build_service(s):
+    import json
     rel, home = "../", "../index.html"
     canonical = f"{SITE_URL}/tjanster/{s['slug']}.html"
-    import json
+    faqs = SERVICE_FAQ.get(s["slug"], [])
     ld = {"@context": "https://schema.org", "@type": "Service", "name": s["title"], "serviceType": s["title"],
           "provider": {"@type": "LocalBusiness", "name": "Dödsboakuten", "telephone": PHONE_TEL, "url": SITE_URL},
           "areaServed": AREAS_MAIN + AREAS_REGION, "description": s["meta"]}
-    extra = '<script type="application/ld+json">%s</script>' % json.dumps(ld, ensure_ascii=False)
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
+    extra = '<script type="application/ld+json">%s</script>\n<script type="application/ld+json">%s</script>' % (json.dumps(ld, ensure_ascii=False), json.dumps(faq_ld, ensure_ascii=False))
     out = head(f"{s['title']} Göteborg | Dödsboakuten", s["meta"], canonical, rel, extra)
     out += header(rel, home)
 
-    body = ""
-    for h, p in s["body"]:
-        body += f"<h2>{e(h)}</h2><p>{e(p)}</p>"
-    checks = "".join(f"<li>{ICON_CHECK}<span>{e(i)}</span></li>" for i in s["includes"])
-    related = "".join(f'<a href="{SERVICE_BY_SLUG[r]["slug"]}.html">{e(SERVICE_BY_SLUG[r]["title"])}{ICON_ARROW}</a>' for r in s["related"])
-    steps = "".join(f'<div class="step"><span class="step__num">{i}</span><h3>{e(t)}</h3><p>{e(d)}</p></div>' for i, (t, d) in enumerate(PROCESS, 1))
+    body = "".join(f"<h2>{e(h)}</h2><p>{e(p)}</p>" for h, p in s["body"])
+    includes = "".join(f'<div class="include">{ICON_CHECK}<p>{e(i)}</p></div>' for i in s["includes"])
+    others = [x for x in SERVICES if x["slug"] != s["slug"]]
+    rel_first = [SERVICE_BY_SLUG[r] for r in s["related"]]
+    others = rel_first + [x for x in others if x not in rel_first]
+    others_html = "".join(f'<a class="other" href="{o["slug"]}.html"><h3>{e(o["title"])}</h3><p>{e(o["short"])}</p><span class="more">Läs mer →</span></a>' for o in others[:4])
 
     out += f"""
 <section class="page-hero">
   <div class="page-hero__media" aria-hidden="true"><img src="{rel}assets/img/{s['img']}.webp" alt="" width="1600" height="1000" fetchpriority="high"></div>
-  <div class="container page-hero__inner">
-    <nav class="breadcrumb" aria-label="Brödsmulor"><a href="{home}">Start</a><span>/</span><a href="{home}#tjanster">Tjänster</a><span>/</span><span>{e(s['title'])}</span></nav>
-    <p class="eyebrow">{e(s['title'])}</p>
-    <h1 class="h1">{e(s['h1'])}</h1>
+  <div class="container page-hero__content">
+    <nav class="crumbs" aria-label="Brödsmulor"><a href="{home}">Hem</a><span>/</span><a href="{home}#tjanster">Tjänster</a><span>/</span><span>{e(s['title'])}</span></nav>
+    <h1 class="display">{e(s['h1'])}</h1>
     <p class="lead">{e(s['lead'])}</p>
     <div class="hero__cta">
-      <a class="btn btn--brand" href="{home}#kontakt">Begär kostnadsfri bedömning</a>
-      <a class="btn btn--outline" href="tel:{PHONE_TEL}">{ICON_PHONE}Ring {PHONE_DISPLAY}</a>
+      <a class="btn btn--white" href="#kontakt">Boka kostnadsfri bedömning</a>
+      <a class="btn btn--outline" href="tel:{PHONE_TEL}">{ICON_PHONE}{PHONE_DISPLAY}</a>
     </div>
+    <ul class="facts"><li>Kostnadsfri bedömning</li><li>Ofta på plats inom 24 timmar</li><li>En kontaktperson</li><li>Hela Västsverige</li></ul>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="article">
-      <div class="article__body">
-        {body}
-        <h2>Det här ingår</h2>
-        <ul class="checklist">{checks}</ul>
+<section class="svc-intro">
+  <div class="container svc-intro__grid">
+    <div>{body}</div>
+    <aside class="svc-aside">
+      <div class="stat">
+        <h3>Behöver du hjälp snabbt?</h3>
+        <p>Vid akuta situationer kan vi ofta vara på plats inom 24 timmar. Ring oss så går vi igenom läget direkt.</p>
+        <a class="btn btn--brand btn--block" href="tel:{PHONE_TEL}">{ICON_PHONE}{PHONE_DISPLAY}</a>
+        <p>{e(HOURS)} · {e(HOURS_EXTRA)}</p>
       </div>
-      <aside class="aside">
-        <div class="aside__card">
-          <h3>Behöver du hjälp snabbt?</h3>
-          <p>Vid akuta situationer kan vi ofta vara på plats inom 24 timmar. Ring oss så går vi igenom läget direkt.</p>
-          <a class="btn btn--brand" href="tel:{PHONE_TEL}">{ICON_PHONE}{PHONE_DISPLAY}</a>
-          <p style="font-size:14px">{e(HOURS)}<br>{e(HOURS_EXTRA)}</p>
-        </div>
-        <div>
-          <h4>Relaterade tjänster</h4>
-          <div class="aside__links">{related}</div>
-        </div>
-        <div>
-          <h4>Vi finns i</h4>
-          <p class="muted" style="font-size:15px">{e(", ".join(AREAS_MAIN + AREAS_REGION))} och övriga Västsverige.</p>
-        </div>
-      </aside>
-    </div>
+      <div class="step">
+        <h3>Vi finns i</h3>
+        <p>{e(", ".join(AREAS_MAIN + AREAS_REGION))} och övriga Västsverige.</p>
+      </div>
+    </aside>
   </div>
 </section>
 
-<section class="section section--paper section--tight">
+<section class="includes">
   <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">Så fungerar det</p>
-      <h2 class="h2">Från första samtal till klart hem.</h2>
-    </div>
-    <div class="process">{steps}</div>
+    <h2 class="h2 h2--center">Det här ingår</h2>
+    <p class="includes__lead">Vi anpassar alltid upplägget efter bostaden och era önskemål.</p>
+    <div class="includes__grid">{includes}</div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="container">
+    <h2 class="h2 h2--center">Så går det till</h2>
+    <p class="steps__lead">Fem steg från första samtal till klart hem.</p>
+    <div class="steps__grid">{steps_html()}</div>
+  </div>
+</section>
+
+<section class="svc-faq">
+  <div class="container">
+    <h2 class="h2 h2--center">Vanliga frågor om {e(s['title'].lower())}</h2>
+    <div class="faq">{faq_html(faqs)}</div>
+  </div>
+</section>
+
+<section class="others">
+  <div class="container">
+    <h2 class="h2 h2--center">Fler tjänster</h2>
+    <div class="others__grid">{others_html}</div>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="container cta-band__inner">
-    <h2>Kostnadsfri bedömning av dödsboet. Ring {PHONE_DISPLAY} eller skicka en förfrågan.</h2>
-    <a class="btn btn--ink" href="{home}#kontakt">Begär offert {ICON_ARROW}</a>
+    <h2 class="display display--sm">Redo att få hjälp med dödsboet?</h2>
+    <p>Kostnadsfri bedömning i Göteborg och hela Västsverige. Ring oss eller skicka en förfrågan så återkommer vi snabbt.</p>
+    <div class="cta-band__actions">
+      <a class="btn btn--dark" href="tel:{PHONE_TEL}">{ICON_PHONE}Ring {PHONE_DISPLAY}</a>
+      <a class="btn btn--white" href="#kontakt">Skicka förfrågan</a>
+    </div>
   </div>
 </section>
 """
+    out += contact_html(rel, home)
     out += footer(rel, home)
     write(os.path.join(ROOT, "tjanster", f"{s['slug']}.html"), out)
 

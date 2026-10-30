@@ -2,10 +2,9 @@
   'use strict';
 
   var header = document.querySelector('.header');
-  var burger = document.querySelector('.burger');
-  var menu = document.querySelector('.mobile-menu');
+  var toggle = document.querySelector('.header__toggle');
+  var mobile = document.querySelector('.header__mobile');
 
-  // Skugga/linje på header vid scroll
   function onScroll() {
     if (!header) return;
     header.classList.toggle('is-scrolled', window.scrollY > 8);
@@ -13,26 +12,16 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Mobilmeny
   function setMenu(open) {
-    if (!burger || !menu) return;
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    menu.classList.toggle('is-open', open);
-    document.body.classList.toggle('menu-open', open);
+    if (!toggle || !mobile) return;
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mobile.hidden = !open;
+    header.classList.toggle('is-open', open);
   }
-  if (burger && menu) {
-    burger.addEventListener('click', function () {
-      setMenu(burger.getAttribute('aria-expanded') !== 'true');
-    });
-    menu.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () { setMenu(false); });
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setMenu(false);
-    });
-    window.matchMedia('(min-width: 1040px)').addEventListener('change', function (e) {
-      if (e.matches) setMenu(false);
-    });
+  if (toggle && mobile) {
+    toggle.addEventListener('click', function () { setMenu(mobile.hidden); });
+    mobile.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
   }
 
   // Hero-video: pausa vid reduced motion, välj mobilkälla
