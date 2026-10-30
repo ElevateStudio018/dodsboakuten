@@ -8,7 +8,9 @@ Innehållet (texter, tjänster, kontaktuppgifter) ligger i den här filen så at
 sidhuvud/sidfot och tjänstesidor hålls konsekventa. Kör skriptet efter ändringar
 så skrivs index.html och tjanster/*.html om.
 """
-import os, html
+import os, html, hashlib, time
+
+VERSION = hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -276,7 +278,7 @@ def head(title, desc, canonical, rel, extra=""):
 <link rel="icon" href="{rel}assets/img/favicon.png" type="image/png">
 <link rel="preload" href="{rel}assets/fonts/poppins-latin-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{rel}assets/fonts/poppins-latin-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{rel}assets/css/style.css">
+<link rel="stylesheet" href="{rel}assets/css/style.css?v={VERSION}">
 {extra}
 </head>
 <body>
@@ -336,7 +338,7 @@ def footer(rel, home):
   <a class="btn btn--dark" href="tel:{PHONE_TEL}">{ICON_PHONE}Ring oss</a>
   <a class="btn btn--brand" href="{home}#kontakt">Begär offert</a>
 </div>
-<script src="{rel}assets/js/main.js" defer></script>
+<script src="{rel}assets/js/main.js?v={VERSION}" defer></script>
 </body>
 </html>
 """
