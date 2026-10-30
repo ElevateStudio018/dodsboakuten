@@ -32,4 +32,4 @@ python3 tools/build.py
 
 - Logotyp och profilbild: hämtade från dodsboakuten.se (`assets/img/logga-original.png`, `assets/img/profil.jpg`).
 - Övriga foton och hero-video: Pexels (fri licens, ingen attribution krävs). Hero-video: Erik Mclean, Pexels #40345327.
-- Typsnitt: Source Serif 4 och Inter via Google Fonts.
+- Typsnitt: Poppins via Google Fonts.

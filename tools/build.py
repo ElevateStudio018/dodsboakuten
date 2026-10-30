@@ -226,7 +226,7 @@ def head(title, desc, canonical, rel, extra_ld=""):
 <link rel="icon" href="{rel}assets/img/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{rel}assets/css/style.css">
 {extra_ld}
 </head>
@@ -469,7 +469,7 @@ def build_index():
     <div class="process">{steps}</div>
     <div class="process-cta reveal">
       <a class="btn btn--ink" href="#kontakt">Boka kostnadsfri bedömning</a>
-      <span class="muted">Eller ring oss direkt på <a href="tel:{PHONE_TEL}" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--brand)">{PHONE_DISPLAY}</a></span>
+      <span class="muted">Eller ring oss direkt på <a href="tel:{PHONE_TEL}" style="color:var(--ink);font-weight:500">{PHONE_DISPLAY}</a></span>
     </div>
   </div>
 </section>
