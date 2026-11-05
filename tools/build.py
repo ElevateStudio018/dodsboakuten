@@ -280,12 +280,16 @@ def head(title, desc, canonical, rel, extra=""):
 <body>
 """
 
-NAV = [("Hem", ""), ("Tjänster", "#tjanster"), ("Om oss", "#om-oss"), ("Vanliga frågor", "#faq"), ("Kontakt", "#kontakt")]
-
 def header(rel, home):
-    nav = "".join(f'<a href="{home or "index.html"}{h}">{e(t)}</a>' for t, h in NAV)
+    idx = home or "index.html"
+    dd = "".join(f'<a href="{rel}tjanster/{s["slug"]}.html">{e(s["title"])}</a>' for s in SERVICES)
+    nav = (f'<a href="{idx}">Hem</a>'
+           f'<div class="dropdown"><a href="{idx}#tjanster" aria-haspopup="true">Tjänster <span aria-hidden="true">⌄</span></a><div class="dropdown__menu">{dd}</div></div>'
+           f'<a href="{rel}om-oss.html">Om oss</a>'
+           f'<a href="{idx}#faq">Vanliga frågor</a>'
+           f'<a href="{idx}#kontakt">Kontakt</a>')
     subs = "".join(f'<a class="sub" href="{rel}tjanster/{s["slug"]}.html">{e(s["title"])}</a>' for s in SERVICES)
-    mobile = "".join(f'<a href="{home}{h}">{e(t)}</a>' for t, h in NAV[2:])
+    mobile = f'<a href="{rel}om-oss.html">Om oss</a><a href="{idx}#faq">Vanliga frågor</a><a href="{idx}#kontakt">Kontakt</a>' 
     return f"""
 <a class="skip" href="#main">Hoppa till innehållet</a>
 <header class="header">
@@ -299,7 +303,7 @@ def header(rel, home):
   </div>
   <nav class="header__mobile" id="mobile-nav" hidden aria-label="Mobilmeny">
     <a href="{home or 'index.html'}">Hem</a>
-    <a href="{home}#tjanster">Tjänster</a>
+    <a href="{home or 'index.html'}#tjanster">Tjänster</a>
     {subs}
     {mobile}
     <a class="btn btn--brand btn--block" href="tel:{PHONE_TEL}">Ring {PHONE_DISPLAY}</a>
@@ -421,19 +425,29 @@ def build_index():
   </div>
 </section>
 
+<section class="services" id="tjanster">
+  <div class="container">
+    <h2 class="h2 h2--center">Våra tjänster</h2>
+    <p class="sub">Hjälp genom hela processen, från sortering och värdering till bortforsling, städning och sanering.</p>
+    <div class="services__grid">{"".join(card_html(s, rel) for s in SERVICES)}
+    </div>
+  </div>
+</section>
+
 <section class="about" id="om">
   <div class="container about__grid">
     <div class="about__text">
       <h2 class="h2">Om oss</h2>
       <p>Dödsboakuten erbjuder professionell hjälp med dödsbon i Göteborg, Halland och hela Västsverige. Vi stöttar privatpersoner, anhöriga och familjer genom hela processen, som ofta är både känslomässigt svår och full av praktiska uppgifter.</p>
       <p>Vi hjälper till med tömning, värdering, köp, städning och sanering, i allt från små lägenheter till stora villor och gårdar. Arbetet sker snabbt och respektfullt, med personlig kontakt genom hela processen. Vid behov samarbetar vi med aktörer i branschen för att kunna erbjuda helhetslösningar.</p>
-      <a class="btn btn--brand" href="#tjanster">Våra tjänster</a>
+      <a class="btn btn--brand" href="om-oss.html">Mer om oss</a>
     </div>
     <div class="about__media">
       <img src="assets/img/fonster.webp" srcset="assets/img/fonster-800.webp 800w, assets/img/fonster.webp 1600w" sizes="(min-width: 960px) 50vw, 100vw" alt="Interiör i ett äldre hem" loading="lazy" width="1600" height="1200">
     </div>
   </div>
 </section>
+
 
 <section class="why" id="varfor">
   <div class="container why__grid">
@@ -444,15 +458,6 @@ def build_index():
       <a class="btn btn--brand" href="#kontakt">Kontakta oss</a>
     </div>
     <div class="why__list">{why}</div>
-  </div>
-</section>
-
-<section class="services" id="tjanster">
-  <div class="container">
-    <h2 class="h2 h2--center">Våra tjänster</h2>
-    <p class="sub">Hjälp genom hela processen, från sortering och värdering till bortforsling, städning och sanering.</p>
-    <div class="services__grid">{"".join(card_html(s, rel) for s in SERVICES)}
-    </div>
   </div>
 </section>
 
@@ -472,23 +477,6 @@ def build_index():
       <h2 class="h2">Vi hjälper i hela Västsverige</h2>
       <p>Göteborgsregionen, Halland, Bohuslän och övriga Västra Götaland.</p>
       <ul class="tags">{areas}</ul>
-    </div>
-  </div>
-</section>
-
-<section class="team" id="om-oss">
-  <div class="container team__grid">
-    <div class="team__portrait">
-      <img src="assets/img/profil.jpg" alt="Ansvarig på Dödsboakuten" width="281" height="328" loading="lazy">
-    </div>
-    <div class="team__text">
-      <h2 class="h2">Personlig kontakt</h2>
-      <div class="team__role"><b>Din kontaktperson på Dödsboakuten</b><span>Göteborg &amp; Västsverige</span></div>
-      <p>Du har samma kontaktperson genom hela processen, från första samtal till färdigt hem. Vi arbetar med respekt, diskretion och omtanke.</p>
-      <div class="team__contact">
-        <a class="btn btn--dark" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
-        <a class="btn btn--white" style="border:1px solid var(--line)" href="mailto:{EMAIL}">{EMAIL}</a>
-      </div>
     </div>
   </div>
 </section>
@@ -613,6 +601,70 @@ def build_service(s):
     out += footer(rel, home)
     write(os.path.join(ROOT, "tjanster", f"{s['slug']}.html"), out)
 
+
+TEAM_HTML = '<section class="team" id="om-oss">\n  <div class="container team__grid">\n    <div class="team__portrait">\n      <img src="assets/img/profil.jpg" alt="Ansvarig på Dödsboakuten" width="281" height="328" loading="lazy">\n    </div>\n    <div class="team__text">\n      <h2 class="h2">Personlig kontakt</h2>\n      <div class="team__role"><b>Din kontaktperson på Dödsboakuten</b><span>Göteborg &amp; Västsverige</span></div>\n      <p>Du har samma kontaktperson genom hela processen, från första samtal till färdigt hem. Vi arbetar med respekt, diskretion och omtanke.</p>\n      <div class="team__contact">\n        <a class="btn btn--dark" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>\n        <a class="btn btn--white" style="border:1px solid var(--line)" href="mailto:{EMAIL}">{EMAIL}</a>\n      </div>\n    </div>\n  </div>\n</section>\n\n'
+
+# ---------------------------------------------------------------------------
+# Om oss-sida
+# ---------------------------------------------------------------------------
+def build_about():
+    rel, home = "", ""
+    out = head("Om oss | Dödsboakuten", "Dödsboakuten erbjuder professionell hjälp med dödsbon i Göteborg, Halland och hela Västsverige. Tömning, värdering, köp, städning och sanering.", SITE_URL + "/om-oss.html", rel)
+    out += header(rel, home)
+    why = "".join(f'<div class="why__item"><h3>{e(t)}</h3><p>{e(d)}</p></div>' for t, d in WHY)
+    areas = "".join(f'<li class="is-main">{e(a)}</li>' for a in AREAS_MAIN) + "".join(f'<li>{e(a)}</li>' for a in AREAS_REGION)
+    out += f"""
+<section class="page-hero">
+  <div class="page-hero__media" aria-hidden="true"><img src="assets/img/fonster.webp" alt="" width="1600" height="1000" fetchpriority="high"></div>
+  <div class="container page-hero__content">
+    <h1 class="display">Om Dödsboakuten</h1>
+    <p class="lead">Professionell hjälp med dödsbon i Göteborg, Halland och hela Västsverige.</p>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container about__grid">
+    <div class="about__text">
+      <h2 class="h2">Vilka vi är</h2>
+      <p>Dödsboakuten erbjuder professionell hjälp med dödsbon i Göteborg, Halland och hela Västsverige. Vi stöttar privatpersoner, anhöriga och familjer genom hela processen, som ofta är både känslomässigt svår och full av praktiska uppgifter.</p>
+      <p>Vi hjälper till med tömning, värdering, köp, städning och sanering, i allt från små lägenheter till stora villor och gårdar. Arbetet sker snabbt och respektfullt, med personlig kontakt genom hela processen. Vid behov samarbetar vi med aktörer i branschen för att kunna erbjuda helhetslösningar.</p>
+      <a class="btn btn--brand" href="index.html#tjanster">Våra tjänster</a>
+    </div>
+    <div class="about__media">
+      <img src="assets/img/goteborg.webp" srcset="assets/img/goteborg-800.webp 800w, assets/img/goteborg.webp 1600w" sizes="(min-width: 960px) 50vw, 100vw" alt="Centrala Göteborg" loading="lazy" width="1600" height="1200">
+    </div>
+  </div>
+</section>
+""" + TEAM_HTML.replace('id="om-oss"', 'id="kontaktperson"').replace("{PHONE_TEL}", PHONE_TEL).replace("{PHONE_DISPLAY}", PHONE_DISPLAY).replace("{EMAIL}", EMAIL) + f"""
+<section class="why">
+  <div class="container why__grid">
+    <div>
+      <p class="kicker">Därför Dödsboakuten</p>
+      <h2 class="display display--sm">Erfarenhet, helhetslösningar och <em>snabb hjälp.</em></h2>
+      <p class="why__lead">Ofta på plats inom 24 timmar. Kostnadsfri bedömning. En kontaktperson genom hela processen.</p>
+      <a class="btn btn--brand" href="#kontakt">Kontakta oss</a>
+    </div>
+    <div class="why__list">{why}</div>
+  </div>
+</section>
+
+<section class="areas">
+  <div class="container areas__grid">
+    <div class="areas__media">
+      <img src="assets/img/rum.webp" srcset="assets/img/rum-800.webp 800w, assets/img/rum.webp 1600w" sizes="(min-width: 960px) 50vw, 100vw" alt="Interiör i en äldre bostad" loading="lazy" width="1600" height="1200">
+    </div>
+    <div class="areas__text">
+      <h2 class="h2">Vi hjälper i hela Västsverige</h2>
+      <p>Göteborgsregionen, Halland, Bohuslän och övriga Västra Götaland.</p>
+      <ul class="tags">{areas}</ul>
+    </div>
+  </div>
+</section>
+"""
+    out += contact_html()
+    out += footer(rel, home)
+    write(os.path.join(ROOT, "om-oss.html"), out)
+
 def write(path, content):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
@@ -620,13 +672,14 @@ def write(path, content):
     print("skrev", os.path.relpath(path, ROOT))
 
 def build_sitemap():
-    urls = [SITE_URL + "/"] + [f"{SITE_URL}/tjanster/{s['slug']}.html" for s in SERVICES]
+    urls = [SITE_URL + "/", SITE_URL + "/om-oss.html"] + [f"{SITE_URL}/tjanster/{s['slug']}.html" for s in SERVICES]
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls) + "</urlset>\n"
     write(os.path.join(ROOT, "sitemap.xml"), xml)
     write(os.path.join(ROOT, "robots.txt"), f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
 
 if __name__ == "__main__":
     build_index()
+    build_about()
     for s in SERVICES:
         build_service(s)
     build_sitemap()
