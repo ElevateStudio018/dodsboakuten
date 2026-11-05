@@ -328,7 +328,6 @@ def footer(rel, home):
     </div>
     <div class="footer__legal">
       <span>© <span data-year>2026</span> Dödsboakuten</span>
-      <span>Dödsbo i Göteborg &amp; Västsverige</span>
     </div>
   </div>
 </footer>
@@ -381,7 +380,6 @@ def contact_html():
       <input type="hidden" name="_subject" value="Offertförfrågan via dodsboakuten.se">
       <div class="form__foot">
         <button class="btn btn--ink" type="submit">Skicka förfrågan</button>
-        <small>Uppgifterna används endast för att återkomma till dig.</small>
       </div>
       <p class="form__status" role="status" aria-live="polite"></p>
     </form>
@@ -460,7 +458,6 @@ def build_index():
     </div>
     <figure class="about__figure">
       <img src="assets/img/fonster.webp" srcset="assets/img/fonster-800.webp 800w, assets/img/fonster.webp 1600w" sizes="(min-width: 1280px) 1150px, 100vw" alt="Ett äldre hem med lampa och spegel vid fönstret" loading="lazy" width="1600" height="686">
-      <figcaption>Varje hem bär på en historia. Vi hanterar den med respekt.</figcaption>
     </figure>
   </div>
 </section>
@@ -473,11 +470,6 @@ def build_index():
     </div>
     <p class="services__intro lead">Från sortering och värdering till bortforsling, städning och sanering. Välj det ni behöver, eller låt oss ta hand om helheten.</p>
     <div class="services__list">{services}
-    </div>
-    <div class="services__foot">
-      <span>Osäker på vad ni behöver?</span>
-      <a href="tel:{PHONE_TEL}">Ring {PHONE_DISPLAY}</a>
-      <a class="textlink" href="#kontakt">Skicka en förfrågan</a>
     </div>
   </div>
 </section>
@@ -501,10 +493,6 @@ def build_index():
       <h2 class="h-l">Fem steg från första samtal till överlämnat hem.</h2>
     </div>
     <div class="steps__list">{steps_html()}</div>
-    <div class="steps__foot">
-      <a class="btn btn--ink" href="#kontakt">Boka kostnadsfri bedömning</a>
-      <span class="body">Eller ring <a href="tel:{PHONE_TEL}" style="color:var(--ink);font-weight:500">{PHONE_DISPLAY}</a></span>
-    </div>
   </div>
 </section>
 
@@ -518,7 +506,6 @@ def build_index():
       <h2 class="h-l">Göteborg, Halland, Bohuslän och hela Västsverige.</h2>
       <p class="lead" style="margin-top:24px">Vi utgår från Hisings Backa och arbetar i hela Göteborgsregionen, längs kusten och inåt landet.</p>
       <ul class="areas__cols">{areas}</ul>
-      <p class="areas__note">Saknas din ort? Hör av dig, vi hjälper ofta till även utanför de områden som listas här.</p>
     </div>
   </div>
 </section>
@@ -549,10 +536,6 @@ def build_index():
       <h2 class="h-l">Förtroende byggs i varje uppdrag.</h2>
     </div>
     <div class="reviews__body">
-      <!--
-        REDAKTIONELL NOT: Lägg in riktiga kundomdömen här i <div class="reviews__list">.
-        <figure class="review"><blockquote>”Citat från kunden.”</blockquote><figcaption>Förnamn E., Göteborg · Tömning av dödsbo</figcaption></figure>
-      -->
       <div class="reviews__note">
         <h3 class="h-m">Referenser lämnas gärna på begäran.</h3>
         <p>Vi publicerar endast omdömen från verkliga kunder. Vill du höra hur tidigare uppdragsgivare upplevt vårt arbete, eller har du själv anlitat oss och vill dela din upplevelse, hör av dig.</p>
@@ -607,8 +590,7 @@ def build_service(s):
 <section class="page-hero">
   <div class="page-hero__media" aria-hidden="true"><img src="{rel}assets/img/{s['img']}.webp" alt="" width="1600" height="1000" fetchpriority="high"></div>
   <div class="wrap page-hero__body">
-    <nav class="crumbs" aria-label="Brödsmulor"><a href="{home}">Start</a><span>/</span><a href="{home}#tjanster">Tjänster</a><span>/</span><span>{e(s['title'])}</span></nav>
-    <span class="label">{e(s['title'])}</span>
+    <span class="label">Tjänster</span>
     <h1 class="h-xl">{e(s['h1'])}</h1>
     <p class="lead">{e(s['lead'])}</p>
     <div class="hero__actions">
