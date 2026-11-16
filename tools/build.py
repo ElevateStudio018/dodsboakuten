@@ -29,6 +29,76 @@ AREAS_MAIN = ["Göteborg", "Mölndal", "Partille", "Lerum", "Kungälv", "Ale", "
 AREAS_REGION = ["Halmstad", "Varberg", "Falkenberg", "Borås", "Uddevalla", "Trollhättan", "Lysekil", "Tjörn"]
 
 # ---------------------------------------------------------------------------
+# Områden (innehåll från dodsboakuten.se/<ort>.html)
+# ---------------------------------------------------------------------------
+AREAS = [
+    dict(slug="goteborgsregionen", name="Göteborgsregionen", prep="i Göteborgsregionen", region="Göteborgsregionen", img="goteborg",
+         title="Dödsbo Göteborgsregionen | Tömning, värdering & sanering",
+         h1="Dödsbo i Göteborgsregionen", h2="Professionell hjälp med dödsbo i hela Göteborgsregionen",
+         intro="Vi hjälper privatpersoner och anhöriga med dödsbon i hela Göteborgsregionen. Tömning, värdering av bohag och vid behov sanering samlas hos en och samma aktör, oavsett om dödsboet är litet eller stort.",
+         fast="Vi kan ofta vara på plats inom 24 timmar, i Göteborg såväl som i kranskommunerna.",
+         nearby=["Göteborg", "Mölndal", "Partille", "Lerum", "Kungälv", "Stenungsund", "Ale", "Kungsbacka"],
+         areas_title="Vi arbetar i hela Göteborgsregionen", why_last="Hjälp i hela Västsverige"),
+    dict(slug="halmstad", name="Halmstad", prep="i Halmstad", region="Halland", img="vastsverige",
+         title="Dödsbo Halmstad | Tömning, värdering & sanering",
+         h1="Dödsbo i Halmstad", h2="Trygg hjälp med dödsbo i Halmstad",
+         intro="Vi hjälper privatpersoner och anhöriga med dödsbon i Halmstad och närliggande områden. Målet är en process som ger trygghet och minskar stress, med tjänster som passar både små lägenheter och större fastigheter.",
+         fast="Vi kan ofta vara på plats inom 24 timmar i Halmstad med omnejd.",
+         nearby=["Varberg", "Falkenberg", "Ullared", "Tvååker", "Bua", "Åsa", "Kungsbacka"],
+         areas_title="Vi arbetar i hela Halland", why_last="Hjälp i hela Halland och Västsverige"),
+    dict(slug="varberg", name="Varberg", prep="i Varberg", region="Halland", img="vastsverige",
+         title="Dödsbo Varberg | Tömning, värdering & sanering",
+         h1="Dödsbo i Varberg", h2="Trygg hjälp med dödsbo i Varberg",
+         intro="Vi hjälper privatpersoner och familjer med dödsbon i Varberg och närliggande områden. Målet är en trygg, respektfull och smidig process där allt hanteras via en kontakt.",
+         fast="Vi kan ofta vara på plats inom 24 timmar i Varberg med omnejd.",
+         nearby=["Halmstad", "Falkenberg", "Ullared", "Tvååker", "Bua", "Åsa", "Kungsbacka"],
+         areas_title="Vi arbetar i hela Halland", why_last="Hjälp i hela Halland och Västsverige"),
+    dict(slug="kungsbacka", name="Kungsbacka", prep="i Kungsbacka", region="Kungsbacka och norra Halland", img="vastsverige",
+         title="Dödsbo Kungsbacka | Tömning, värdering & sanering",
+         h1="Dödsbo i Kungsbacka", h2="Trygg hjälp med dödsbo i Kungsbacka",
+         intro="Vi hjälper privatpersoner och anhöriga med dödsbon i Kungsbacka och närliggande områden. Tömning, värdering och sanering hanteras genom en och samma kontakt, inklusive bortforsling och städning.",
+         fast="Vi kan ofta vara på plats inom 24 timmar i Kungsbacka med omnejd.",
+         nearby=["Halmstad", "Varberg", "Falkenberg", "Åsa", "Göteborgsregionen", "Mölndal", "Partille"],
+         areas_title="Vi arbetar i Halland och Göteborgsregionen", why_last="Hjälp i hela Västsverige"),
+    dict(slug="boras", name="Borås", prep="i Borås", region="Borås och Sjuhärad", img="rum",
+         title="Dödsbo Borås | Tömning, värdering & sanering",
+         h1="Dödsbo i Borås", h2="Trygg hjälp med dödsbo i Borås",
+         intro="Vi hjälper privatpersoner och anhöriga med dödsbon i Borås och närliggande områden. Tömning, värdering av bohag och vid behov sanering hanteras via en och samma kontakt, för både små lägenheter och större villor.",
+         fast="Vi kan ofta vara på plats inom 24 timmar i Borås med omnejd.",
+         nearby=["Alingsås", "Ulricehamn", "Lerum", "Partille", "Mölndal", "Göteborgsregionen"],
+         areas_title="Vi arbetar i Borås och hela Västra Götaland", why_last="Hjälp i hela Västsverige"),
+    dict(slug="partille", name="Partille", prep="i Partille", region="Göteborgsregionen", img="goteborg",
+         title="Dödsbo Partille | Tömning, värdering & sanering",
+         h1="Dödsbo i Partille", h2="Trygg hjälp med dödsbo i Partille",
+         intro="Vi hjälper privatpersoner och anhöriga med dödsbo i Partille och närliggande områden, med tömning, värdering av bohag och sanering vid behov, för både små lägenheter och stora villor.",
+         fast="Vi kan ofta vara på plats inom 24 timmar i Partille med omnejd.",
+         nearby=["Göteborgsregionen", "Mölndal", "Lerum", "Kungälv", "Kungsbacka", "Borås", "Alingsås"],
+         areas_title="Vi arbetar i hela Göteborgsregionen", why_last="Hjälp i hela Göteborgsregionen"),
+    dict(slug="molndal", name="Mölndal", prep="i Mölndal", region="Göteborgsregionen", img="goteborg",
+         title="Dödsbo Mölndal | Tömning, värdering & sanering",
+         h1="Dödsbo i Mölndal", h2="Trygg hjälp med dödsbo i Mölndal",
+         intro="Professionell hjälp med tömning, värdering och sanering av dödsbo i Mölndal och närliggande områden. Bortforsling ingår som en del av en och samma helhetstjänst.",
+         fast="Vi kan ofta vara på plats inom 24 timmar i Mölndal med omnejd.",
+         nearby=["Göteborgsregionen", "Partille", "Lerum", "Kungälv", "Kungsbacka", "Borås", "Alingsås"],
+         areas_title="Vi arbetar i hela Göteborgsregionen", why_last="Hjälp i hela Göteborgsregionen"),
+    dict(slug="lerum", name="Lerum", prep="i Lerum", region="Göteborgsregionen", img="goteborg",
+         title="Dödsbo Lerum | Tömning, värdering & sanering",
+         h1="Dödsbo i Lerum", h2="Trygg hjälp med dödsbo i Lerum",
+         intro="Professionell hjälp med tömning, värdering och sanering av dödsbo i Lerum och närliggande områden. Dödsbohantering kan vara både känslomässigt och praktiskt krävande, därför erbjuder vi helhetslösningar för både mindre lägenheter och större villor och fastigheter.",
+         fast="Vi kan ofta vara på plats inom 24 timmar i Lerum med omnejd.",
+         nearby=["Göteborgsregionen", "Partille", "Mölndal", "Kungälv", "Borås", "Alingsås", "Ulricehamn"],
+         areas_title="Vi arbetar i hela Göteborgsregionen", why_last="Hjälp i hela Göteborgsregionen"),
+    dict(slug="kungalv", name="Kungälv", prep="i Kungälv", region="Göteborgsregionen och Bohuslän", img="goteborg",
+         title="Dödsbo Kungälv | Tömning, värdering & sanering",
+         h1="Dödsbo i Kungälv", h2="Trygg hjälp med dödsbo i Kungälv",
+         intro="Vi hjälper privatpersoner och anhöriga med tömning, värdering och sanering av dödsbo i Kungälv och närliggande områden. Tömning, värdering, bortforsling och städning hanteras genom en och samma kontakt.",
+         fast="Vi kan ofta vara på plats inom 24 timmar i Kungälv med omnejd.",
+         nearby=["Göteborgsregionen", "Stenungsund", "Ale", "Mölndal", "Partille", "Lerum", "Kungsbacka"],
+         areas_title="Vi arbetar i hela Göteborgsregionen", why_last="Hjälp i hela Göteborgsregionen"),
+]
+AREA_BY_SLUG = {a["slug"]: a for a in AREAS}
+
+# ---------------------------------------------------------------------------
 # Tjänster
 # ---------------------------------------------------------------------------
 SERVICES = [
@@ -321,6 +391,7 @@ def footer(rel, home):
     <div class="footer__grid">
       <div><img class="footer__logo" src="{rel}assets/img/logo-wordmark-dark.png" alt="Dödsboakuten" width="1773" height="680"></div>
       <div class="footer__links">{links}</div>
+      <div class="footer__links">{"".join(f'<a href="{rel}omraden/{a["slug"]}.html">{e(a["name"])}</a>' for a in AREAS)}</div>
       <address>Dödsboakuten<br>{e(ADDRESS)}<br>Telefon: <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a><br>Mail: <a href="mailto:{EMAIL}">{EMAIL}</a><br>{e(HOURS)}</address>
     </div>
     <p class="footer__copy">© <span data-year>2026</span> Dödsboakuten</p>
@@ -468,16 +539,11 @@ def build_index():
   </div>
 </section>
 
-<section class="areas" id="omraden">
-  <div class="container areas__grid">
-    <div class="areas__media">
-      <img src="assets/img/goteborg.webp" srcset="assets/img/goteborg-800.webp 800w, assets/img/goteborg.webp 1600w" sizes="(min-width: 960px) 50vw, 100vw" alt="Centrala Göteborg" loading="lazy" width="1600" height="1200">
-    </div>
-    <div class="areas__text">
-      <h2 class="h2">Vi hjälper i hela Västsverige</h2>
-      <p>Göteborgsregionen, Halland, Bohuslän och övriga Västra Götaland.</p>
-      <ul class="tags">{areas}</ul>
-    </div>
+<section class="regions" id="omraden">
+  <div class="container">
+    <h2 class="h2 h2--center">Våra områden</h2>
+    <p class="sub">Vi hjälper till med dödsbo i Göteborgsregionen, Halland och hela Västsverige. Välj ditt område.</p>
+    <div class="regions__grid">{"".join(f'<a class="region" href="omraden/{a["slug"]}.html"><span>{e(a["name"])}</span><small>{e(a["region"])}</small></a>' for a in AREAS)}</div>
   </div>
 </section>
 
@@ -665,6 +731,127 @@ def build_about():
     out += footer(rel, home)
     write(os.path.join(ROOT, "om-oss.html"), out)
 
+# ---------------------------------------------------------------------------
+# Områdessidor
+# ---------------------------------------------------------------------------
+def build_area(a):
+    import json
+    rel, home = "../", "../index.html"
+    canonical = f"{SITE_URL}/omraden/{a['slug']}.html"
+    desc = f"Dödsboakuten hjälper till med tömning, värdering, köp, städning och sanering av dödsbo {a['prep']} och närliggande områden. Kostnadsfri bedömning, ofta på plats inom 24 timmar."
+    ld = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Dödsboakuten", "url": canonical, "telephone": PHONE_TEL, "email": EMAIL,
+          "address": {"@type": "PostalAddress", "streetAddress": "Exportgatan 73", "postalCode": "422 46", "addressLocality": "Hisings Backa", "addressCountry": "SE"},
+          "areaServed": [a["name"]] + a["nearby"], "description": desc}
+    faqs = [
+        (f"Hur snabbt kan ni komma till {a['name']}?", a["fast"] + " Ring oss på %s så går vi igenom läget direkt." % PHONE_DISPLAY),
+        (f"Vad kostar en bedömning av ett dödsbo {a['prep']}?", "Den första bedömningen är kostnadsfri. Efter besöket lämnar vi ett tydligt förslag på upplägg."),
+        (f"Vilka tjänster erbjuder ni {a['prep']}?", "Tömning, värdering, köp, städning och sanering av dödsbo, samt röjning, samlarsanering, blodsanering och liksanering. Allt hanteras genom en och samma kontakt."),
+        (f"Vilka områden runt {a['name']} täcker ni?", f"Förutom {a['name']} hjälper vi till i {', '.join(a['nearby'][:-1])} och {a['nearby'][-1]}, samt övriga Västsverige."),
+    ]
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": t}} for q, t in faqs]}
+    extra = '<script type="application/ld+json">%s</script>\n<script type="application/ld+json">%s</script>' % (json.dumps(ld, ensure_ascii=False), json.dumps(faq_ld, ensure_ascii=False))
+    out = head(a["title"] + " | Dödsboakuten", desc, canonical, rel, extra)
+    out += header(rel, home)
+    why = [("Snabb och flexibel hjälp", a["fast"]),
+           ("Professionell och respektfull hantering", "Vi arbetar med omtanke om både de anhöriga och den avlidnes hem."),
+           ("Kompletta lösningar för dödsbo", "Tömning, värdering, bortforsling, städning och sanering via en kontakt."),
+           ("Erfarenhet av många uppdrag", "Från små lägenheter till stora villor och fastigheter."),
+           ("Samarbeten inom branschen", "Vi samarbetar med aktörer i branschen för att kunna erbjuda helhetslösningar."),
+           (a["why_last"], "Göteborgsregionen, Halland, Bohuslän och övriga Västra Götaland.")]
+    why_html = "".join(f'<div class="why__item"><h3>{e(t)}</h3><p>{e(d)}</p></div>' for t, d in why)
+    main3 = [SERVICE_BY_SLUG[x] for x in ("tomma-dodsbo", "vardera-dodsbo", "sanering-dodsbo")]
+    cards = "".join(card_html(x, rel) for x in main3)
+    other_areas = "".join(f'<a class="region" href="{o["slug"]}.html"><span>{e(o["name"])}</span><small>{e(o["region"])}</small></a>' for o in AREAS if o["slug"] != a["slug"])
+    nearby = "".join(f'<li>{e(n)}</li>' for n in a["nearby"])
+    out += f"""
+<section class="page-hero">
+  <div class="page-hero__media" aria-hidden="true"><img src="{rel}assets/img/{a['img']}.webp" alt="" width="1600" height="1000" fetchpriority="high"></div>
+  <div class="container page-hero__content">
+    <h1 class="display">{e(a['h1'])}</h1>
+    <p class="lead">Professionell hjälp med tömning, värdering och sanering av dödsbo {e(a['prep'])}.</p>
+    <div class="hero__cta">
+      <a class="btn btn--white" href="#kontakt">Kostnadsfri bedömning</a>
+      <a class="btn btn--outline" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
+    </div>
+  </div>
+</section>
+
+<section class="svc-intro">
+  <div class="container svc-intro__grid">
+    <div>
+      <h2>{e(a['h2'])}</h2>
+      <p>{e(a['intro'])}</p>
+      <h2>Snabb hjälp {e(a['prep'])}</h2>
+      <p>{e(a['fast'])} Kontakta oss så bokar vi en tid som passar er, och ni får en kostnadsfri bedömning av dödsboet.</p>
+      <h2>Komplett hjälp genom hela processen</h2>
+      <p>Från första kontakt till färdig bostad hanterar vi tömning, värdering, bortforsling, städning och sanering. Vi kan även köpa hela eller delar av bohaget. Allt sker via en och samma kontaktperson.</p>
+    </div>
+    <aside class="aside-box">
+      <h3>Dödsbo {e(a['prep'])}?</h3>
+      <p>{e(a['fast'])}</p>
+      <a class="btn btn--brand btn--block" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
+      <small>{e(HOURS)}<br>{e(HOURS_EXTRA)}</small>
+    </aside>
+  </div>
+</section>
+
+<section class="services" style="padding-top:0">
+  <div class="container">
+    <h2 class="h2 h2--center">Våra tjänster {e(a['prep'])}</h2>
+    <div class="services__grid">{cards}</div>
+    <p class="sub" style="margin-top:40px"><a href="{home}#tjanster" class="card__more">Se alla tjänster →</a></p>
+  </div>
+</section>
+
+<section class="why">
+  <div class="container why__grid">
+    <div>
+      <p class="kicker">Varför Dödsboakuten</p>
+      <h2 class="display display--sm">Varför välja Dödsboakuten <em>{e(a['prep'])}?</em></h2>
+      <a class="btn btn--brand" href="#kontakt">Kontakta oss</a>
+    </div>
+    <div class="why__list">{why_html}</div>
+  </div>
+</section>
+
+<section class="areas">
+  <div class="container areas__grid">
+    <div class="areas__media">
+      <img src="{rel}assets/img/{a['img']}.webp" srcset="{rel}assets/img/{a['img']}-800.webp 800w, {rel}assets/img/{a['img']}.webp 1600w" sizes="(min-width: 960px) 50vw, 100vw" alt="" loading="lazy" width="1600" height="1200">
+    </div>
+    <div class="areas__text">
+      <h2 class="h2">{e(a['areas_title'])}</h2>
+      <p>Förutom {e(a['name'])} hjälper vi till i närliggande orter:</p>
+      <ul class="tags">{nearby}</ul>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="container">
+    <h2 class="h2 h2--center">Så fungerar det</h2>
+    <div class="steps__grid">{steps_html()}</div>
+  </div>
+</section>
+
+<section class="svc-faq">
+  <div class="container">
+    <h2 class="h2 h2--center">Vanliga frågor om dödsbo {e(a['prep'])}</h2>
+    <div class="faq">{faq_html(faqs)}</div>
+  </div>
+</section>
+
+<section class="others">
+  <div class="container">
+    <h2 class="h2 h2--center">Fler områden</h2>
+    <div class="regions__grid" style="margin-top:40px">{other_areas}</div>
+  </div>
+</section>
+"""
+    out += contact_html()
+    out += footer(rel, home)
+    write(os.path.join(ROOT, "omraden", f"{a['slug']}.html"), out)
+
 def write(path, content):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
@@ -672,7 +859,7 @@ def write(path, content):
     print("skrev", os.path.relpath(path, ROOT))
 
 def build_sitemap():
-    urls = [SITE_URL + "/", SITE_URL + "/om-oss.html"] + [f"{SITE_URL}/tjanster/{s['slug']}.html" for s in SERVICES]
+    urls = [SITE_URL + "/", SITE_URL + "/om-oss.html"] + [f"{SITE_URL}/omraden/{a['slug']}.html" for a in AREAS] + [f"{SITE_URL}/tjanster/{s['slug']}.html" for s in SERVICES]
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls) + "</urlset>\n"
     write(os.path.join(ROOT, "sitemap.xml"), xml)
     write(os.path.join(ROOT, "robots.txt"), f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
@@ -680,6 +867,8 @@ def build_sitemap():
 if __name__ == "__main__":
     build_index()
     build_about()
+    for a in AREAS:
+        build_area(a)
     for s in SERVICES:
         build_service(s)
     build_sitemap()
