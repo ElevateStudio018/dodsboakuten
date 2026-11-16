@@ -397,10 +397,6 @@ def footer(rel, home):
     <p class="footer__copy">© <span data-year>2026</span> Dödsboakuten</p>
   </div>
 </footer>
-<div class="call-fab">
-  <a class="btn btn--dark" href="tel:{PHONE_TEL}">Ring oss</a>
-  <a class="btn btn--brand" href="{home}#kontakt">Begär offert</a>
-</div>
 <script src="{rel}assets/js/main.js?v={VERSION}" defer></script>
 </body>
 </html>
@@ -487,7 +483,7 @@ def build_index():
     </video>
   </div>
   <div class="container hero__content">
-    <h1 class="display hero__title" id="hero-title">Vi tar hand <em>om allt.</em></h1>
+    <h1 class="display hero__title" id="hero-title">Vi tar hand <em>om&nbsp;allt.</em></h1>
     <p class="hero__lead">Snabb och professionell hjälp med dödsbo i Göteborg och hela Västsverige. Tömning, värdering, köp, städning och sanering.</p>
     <div class="hero__cta">
       <a class="btn btn--white" href="#kontakt">Kostnadsfri bedömning</a>

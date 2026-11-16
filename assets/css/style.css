@@ -235,11 +235,6 @@ address{font-style:normal}
 .footer a:hover{color:var(--brand-ink)}
 .footer__copy{margin-top:48px;text-align:center;font-size:14px;color:var(--muted)}
 
-/* Mobil ring-knapp */
-.call-fab{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:flex;gap:10px}
-.call-fab .btn{flex:1;min-width:0;height:54px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-@media (min-width:1024px){.call-fab{display:none}}
-@media (max-width:1023px){.footer{padding-bottom:100px}}
 
 /* Undersidor */
 .page-hero{position:relative;color:var(--white);background:#2a2a2a;overflow:hidden;isolation:isolate}
@@ -297,3 +292,18 @@ address{font-style:normal}
 .region::after{content:"→";margin-top:8px;color:var(--brand-ink);font-weight:500}
 .region:hover{transform:translateY(-3px);box-shadow:0 18px 40px -20px rgba(0,0,0,.25)}
 .others .region{background:var(--white)}
+
+/* Hero på mobil: centrerad, luftig */
+@media (max-width:760px){
+  .hero{align-items:center}
+  .hero__content{text-align:center;padding:40px 28px}
+  .hero__title{font-size:clamp(38px,11vw,54px);margin:0 auto}
+  .hero__lead{margin:22px auto 0;font-size:17px;line-height:1.55}
+  .hero__cta{margin-top:30px;flex-direction:column;align-items:stretch;gap:10px}
+  .hero__cta .btn{width:100%;min-width:0}
+  .page-hero__content{text-align:center;padding:64px 28px 56px}
+  .page-hero .display{font-size:clamp(32px,9vw,44px)}
+  .page-hero .lead{margin:20px auto 0}
+  .page-hero .hero__cta{flex-direction:column;align-items:stretch;gap:10px}
+  .page-hero .hero__cta .btn{width:100%;min-width:0}
+}
